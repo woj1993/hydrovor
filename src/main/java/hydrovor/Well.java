@@ -9,6 +9,7 @@ public class Well {
 
     public Well(int volume)
     {
+        this.volume=volume;
     }
 
     /**
@@ -18,6 +19,7 @@ public class Well {
      */
     public void addWater(int volume)
     {
+        this.volume=this.volume+volume;
     }
 
     /**
@@ -31,6 +33,13 @@ public class Well {
      */
     public int getWater(int desiredVolume)
     {
-        return 0;
+        if (desiredVolume<volume)
+        {
+            volume-=desiredVolume;
+            return desiredVolume;
+        }
+        else{
+            return 0;
+        }
     }
 }
