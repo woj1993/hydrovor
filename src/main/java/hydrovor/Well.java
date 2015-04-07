@@ -33,7 +33,7 @@ public class Well {
      */
     public int getWater(int desiredVolume)
     {
-        if (desiredVolume<volume)
+        if (desiredVolume<=volume)
         {
             volume-=desiredVolume;
             return desiredVolume;
