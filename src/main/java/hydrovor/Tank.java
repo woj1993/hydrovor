@@ -11,6 +11,11 @@ public class Tank {
 
     public Tank(int maxVolume, int volume)
     {
+        if (maxVolume>0 && volume>0)
+        {
+            this.maxVolume=maxVolume;
+            this.volume=volume;
+        }
     }
 
     /**
@@ -20,7 +25,15 @@ public class Tank {
      */
     public int getWater()
     {
-        return 0;
+        if (volume>0)
+        {
+            volume=volume-1;
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
     }
 
     /**
@@ -34,6 +47,13 @@ public class Tank {
      */
     public int addWater(int volume)
     {
+        if (this.maxVolume-this.volume>=volume)
+        {
+            this.volume=this.volume+volume;
+            return volume;
+        }
+        else{
         return 0;
+        }
     }
 }
