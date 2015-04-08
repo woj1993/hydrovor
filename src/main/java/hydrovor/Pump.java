@@ -5,18 +5,29 @@ public class Pump {
     private Tank tank;
 
     private Well well;
+    
+    private boolean on;
 
     public Pump(Tank tank, Well well)
     {
-
+            if (tank!=null && well!=null)
+            {
+                this.tank=tank;
+                this.well=well;
+            }
+            else
+            {
+            }
     }
 
     public void on()
     {
+        on=true;
     }
 
     public void off()
     {
+        on=false;
     }
 
     /**
@@ -26,6 +37,9 @@ public class Pump {
      */
     public void tick()
     {
-
+        while (well.getWater(1)==1 && on==true)
+        {
+            tank.addWater(1);
+        }
     }
 }
