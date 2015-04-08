@@ -7,11 +7,11 @@ public class Sink {
 
     private Hydrovor hydrovor;
 
-    public Sink(Hydrovor hydrovor)
-    {
-        if (hydrovor!=null)
-        {
-            this.hydrovor=hydrovor;
+    public Sink(Hydrovor hydrovor) {
+        if (hydrovor != null) {
+            this.hydrovor = hydrovor;
+        } else {
+            throw new IllegalArgumentException();
         }
     }
 
@@ -20,8 +20,7 @@ public class Sink {
      *
      * @return whatever hydrovor returns
      */
-    public int getWater()
-    {
+    public int getWater() {
         return hydrovor.getWater();
     }
 }

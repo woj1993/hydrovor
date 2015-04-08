@@ -7,9 +7,12 @@ public class Well {
 
     private int volume;
 
-    public Well(int volume)
-    {
-        this.volume=volume;
+    public Well(int volume) {
+        if (volume >= 0) {
+            this.volume = volume;
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
     /**
@@ -17,9 +20,12 @@ public class Well {
      *
      * @param volume amount of water that flows in
      */
-    public void addWater(int volume)
-    {
-        this.volume=this.volume+volume;
+    public void addWater(int volume) {
+        if (volume < 0) {
+            throw new IllegalArgumentException();
+        } else {
+            this.volume = this.volume + volume;
+        }
     }
 
     /**
@@ -31,15 +37,16 @@ public class Well {
      *
      * @return actual amount of water that is going out
      */
-    public int getWater(int desiredVolume)
-    {
-        if (desiredVolume<=volume)
-        {
-            volume-=desiredVolume;
-            return desiredVolume;
-        }
-        else{
-            return 0;
+    public int getWater(int desiredVolume) {
+        if (desiredVolume < 0) {
+            throw new IllegalArgumentException();
+        } else {
+            if (desiredVolume <= volume) {
+                volume -= desiredVolume;
+                return desiredVolume;
+            } else {
+                return 0;
+            }
         }
     }
 }
